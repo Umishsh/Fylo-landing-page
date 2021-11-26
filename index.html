@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | Fylo landing page with two column layout</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@400;700&display=swap');
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: hsl(238, 22%, 44%)
+    }
+    a{
+      text-decoration: none;
+    }
+    ul {
+      list-style: none;
+    }
+    .btns input{
+      padding: .65rem 1rem;
+      height: 40px;
+      color: hsl(0, 0%, 75%);
+      border-radius: 3px;
+      outline: none;
+      border:rgba(0, 0, 0, 0.2) 1px solid;
+    }
+    .btns button{
+      padding: .65rem 3.5rem; 
+      background-color: hsl(224, 93%, 58%);
+      border: hsl(224, 93%, 58%) 1px solid;
+      height: 40px;
+      border-radius: 3px;
+      color: white;
+      margin-left: 10px;
+    }
+    .btns button:hover{
+      opacity: .8;
+    }
+    h1.title{
+      font-size: 2.35rem;
+      color: hsl(243, 87%, 12%);
+      padding: 1rem 0;
+      font-family: 'Raleway', sans-serif;
+      line-height: 1.5;
+    }
+    header, section{
+      margin: 0 6%;
+    }
+    header{
+      padding: 50px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header nav a{
+      margin-left: 30px;
+      color: hsl(238, 22%, 44%);
+      font-weight: bold;
+    }
+    /*Showcase*/
+    .showcase{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .showcase .content{
+      flex: 1 1 30rem;
+      overflow: hidden;
+    }
+    .showcase .content p{
+      line-height: 1.2;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .showcase .content .btns{
+      padding-top: 2rem
+    }
+    .showcase .content .btns input{
+      width: 55%;
+    }
+    .showcase img{
+      flex: 1 1 30rem;
+      overflow: hidden;
+    }
+    
+    .curve{
+      width: 100%;
+      height: 100px;
+      background: url('images/bg-curve-desktop.svg') no-repeat left center/cover;
+      margin-top: 70px;
+    }
+    .stayPR{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+      background: hsl(240, 75%, 98%);
+      margin: 0;
+      padding-top: 20px;
+      padding-bottom: 60px;
+    }
+      
+    .stayPR .content{
+      flex: 1 1 30rem;
+      overflow: hidden;
+      margin-left: 6%;
+    }
+    .stayPR .content p{
+      padding: 1rem .6rem 0 0;
+      width: 80%;
+      font-size: 15px;
+      font-weight: bold;
+    }
+    .stayPR .content .smth{
+      padding: 1rem 0;
+      display: flex;
+      align-items: center;
+    }
+    .stayPR .content .smth a{
+      color: hsl(170, 45%, 43%);
+      margin-right: 7px;
+      position: relative;
+    }
+    .stayPR .content .smth a:hover{
+      opacity: .8;
+    }
+    .stayPR .content .smth a::before{
+      content: '';
+      position: absolute;
+      width: calc(100% + 23px);
+      height: 1px;
+      background-color: hsl(170, 45%, 43%);
+      top: calc(100% + 3px);
+      left: 0;
+    }
+    .stayPR .content .smth img{
+      padding-top: 2px;
+    }
+    .stayPR .card{
+      background: white;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+      width: 50%;
+      margin: 1.85rem 0;
+      border-radius: 5px;
+      padding: 1.5rem 2rem;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .stayPR .card img:first-child{
+      display: block;
+      margin-bottom: 10px
+    }
+    .stayPR .card span {
+      font-weight: bold;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .stayPR .card .testimonial{
+      padding-top: 1rem;
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+    }
+    .stayPR .card .testimonial img{
+      width: 35px;
+      border-radius: 50%;
+      padding-right: 6px;
+    }
+    .stayPR .info{
+      font-weight: 700;
+    }
+    .stayPR .info h5{
+      font-weight: bold;
+      color: hsl(243, 87%, 12%);
+    }
+    .stayPR .illustration-2{
+      flex: 1 1 25rem;
+      overflow: hidden;
+      margin-right: 6%;
+    }
+    .signUp{
+      background: hsl(238, 22%, 44%);
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .signUp .content{
+      flex: 1 1 30rem;
+      margin-left: 6%;
+      color: hsl(240, 75%, 98%);
+      padding: 6rem 0;
+    }
+    .signUp h1{
+      font-family: 'Raleway', sans-serif;
+    }
+    .signUp p{
+      color: hsl(0, 0%, 75%);
+      width: 85%;
+      padding-top: 1.5rem;
+    }
+    .signUp .btns{
+      flex: 1 1 30rem;
+      margin-right: 6%;
+      padding: 6rem 0;
+    }
+    .signUp .btns input{
+      width: 75%;
+    }
+    .signUp .btns button{
+      margin-left: 0px;
+      margin-top: 1rem;
+    }
+    .footer{
+      background: hsl(243, 87%, 12%);
+      padding: 6% 4rem;
+    }
+    .footer .logo{
+      padding-bottom: 1rem;
+    }
+    footer .boxes {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    }
+    footer .boxes *:hover {
+      color: hsl(238, 22%, 44%);
+      cursor: pointer;
+    }
+    footer .boxes .box1 span{
+      color: hsl(240, 75%, 98%);
+      margin-left: 1rem;
+      font-size: 14px;
+    }
+    footer .boxes .box1 .phone, footer .boxes .box1 .email{
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    footer .boxes li{
+      margin-bottom: 1rem;
+    }
+    footer .boxes li a{
+      color: hsl(240, 75%, 98%);
+    }
+    footer .boxes i{
+      width: 32px;
+      height: 32px;
+      margin-right: 1rem;
+      padding: 8px;
+      border: hsl(240, 75%, 98%) 1px solid;
+      color: hsl(240, 75%, 98%);
+      border-radius: 50%;
+    }
+    @media screen and (max-width: 1118px){
+      .showcase img{
+        order: -1;
+      }
+      .showcase .content .btns input{
+        width: 35%;
+      }
+      .stayPR .content p{
+        width: 95%;
+      }
+      .signUp .content{
+        padding: 6rem 0 0 0;
+        margin-right: 6%;
+      }
+      .signUp .content p{
+        width: 100%;
+      }
+      .signUp .btns{
+        margin-left: 6%;
+        padding: 0 0 6rem 0
+      }
+      .signUp .btns input{
+        width: 35%;
+      }
+      .signUp .btns button{
+        margin-left: 10px;
+      }
+    }
+    @media screen and (max-width: 1027px){
+      .stayPR .illustration-2{
+        order: -1;
+        margin-left: 6%;
+      }
+      .stayPR .content{
+        margin-right: 6%;
+      }
+    }
+    @media screen and (max-width: 810px){
+      .curve{
+        background: url('images/bg-curve-mobile.svg')  no-repeat left center/cover;
+      }
+      footer .boxes {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+      footer .boxes .box3{
+        order: 2;
+      }
+      footer .boxes .box2{
+        order: 2;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      .curve{
+        height: 80px;
+        background: url('images/bg-curve-mobile.svg')  no-repeat left center/cover;
+      }
+      h1.title{
+      font-size: 2rem;
+      padding: 1rem 0;
+      font-family: 'Raleway', sans-serif;
+      line-height: 1.3;
+      }
+      .showcase .content, .signUp .content, .stayPR .content {
+        text-align: center;
+      }
+      .showcase .content .btns input, .signUp .btns input{
+        display: block;
+        width: 80%;
+        margin: 0 auto 1rem auto;
+        margin-bottom: 1rem;
+      }
+      .showcase .content .btns button, .signUp .btns button{
+        width: 80%;
+        margin: 0 10%
+      }
+
+      .stayPR{
+        padding-bottom: 40px;
+      }
+
+      .stayPR .content p{
+        padding: .6rem 0;
+      }
+
+      .stayPR .content .smth{
+        justify-content: center;
+      }
+    
+      .stayPR .card{
+        width: 80%;
+        margin: 1.85rem auto;
+      }
+      
+      footer .boxes {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      footer .boxes .box4{
+        order: 2;
+        display: flex;
+        justify-content: center;
+      }
+      .logo {
+        width: 100px;
+      }
+    }
+    @media screen and (max-width: 410px){
+      
+      header nav a{
+        margin-left: 15px;
+      }
+      h1.title {
+        font-size: 1.5rem;
+        line-height: 1.2;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="images/logo.svg" alt="" class="logo">
+    <nav>
+      <a href="#">Features</a>
+      <a href="#">Team</a>
+      <a href="#">Sign In</a>
+    </nav>
+  </header>
+
+  <section class="showcase">
+    <div class="content">
+      <h1 class='title'>All your files in one secure location, accessible anywhere.</h1>
+      <p>Fylo stores your most important files in one secure location. 
+        Access them wherever you need, share and collaborate with friends, 
+        family, and co-workers.</p>
+      <div class="btns">
+        <input type="text" placeholder = "Enter your email...">
+        <button>Get Started</button>
+      </div>
+    </div>
+    <img src="images/illustration-1.svg" alt="">
+  </section>
+
+  <div class="curve"></div>
+
+  <section class='stayPR'>
+    <div class="content">
+      <h1 class="title">Stay productive, wherever you are</h1>
+    <p>Never let location be an issue when accessing your files. Fylo has you 
+      covered for all of your file storage needs.</p>
+    <p>Securely share files and folders with friends, family and colleagues for 
+      live collaboration. No email attachments required!</p>
+    <div class="smth">
+      <a href="#">See how Fylo works </a>
+      <img src="images/icon-arrow.svg" alt="">
+    </div>
+    <div class="card">
+      <img src="images/icon-quotes.svg" alt="">
+      <span>Fylo has improved our team productivity by an order of magnitude. Since 
+        making the switch our team has become a well-oiled collaboration machine.</span>
+      <div class="testimonial">
+        <img src="images/avatar-testimonial.jpg" alt="">
+        <div class="info">
+          <h5>Kyle Burton</h5>
+          <h6>Founder & CEO, Huddle</h6>
+        </div>
+      </div>
+    </div>
+    </div>
+    <img class= 'illustration-2' src="images/illustration-2.svg" alt="">
+  </section>
+
+  <section class="signUp">
+    <div class="content">
+      <h1>Get early access today</h1>
+      <p>It only takes a minute to sign up and our free starter tier is extremely generous. 
+        If you have any questions, our support team would be happy to help you.</p>
+    </div>
+    <div class="btns">
+      <input type="text" placeholder="example@gmail.com">
+      <button>Get Started For Free</button>
+    </div>
+  </section>
+
+  <footer class='footer'>
+    <img src="images/logo_dark.svg" alt="" class="logo">
+    <div class="boxes">
+      <div class="box1">
+        <div class="phone">
+          <img src="images/icon-phone.svg" alt="">
+          <span>Phone: +1-543-123-4567</span>
+        </div>
+        <div class="email">
+          <img src="images/icon-email.svg" alt="">
+          <span>example@fylo.com</span>
+        </div>
+      </div>
+      <div class="box2">
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="box3">
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="box4">
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-instagram"></i>
+      </div>
+    </div>
+  </footer>
+  <script src="https://kit.fontawesome.com/d0b13251c8.js" crossorigin="anonymous"></script>
+</body>
+</html>
